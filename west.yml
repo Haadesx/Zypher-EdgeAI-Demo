@@ -1,0 +1,39 @@
+# West manifest for Zephyr Edge AI Demo
+# This manifest configures west to fetch Zephyr and required modules
+
+manifest:
+  version: "1.0"
+
+  # Default remote for Zephyr and its modules
+  defaults:
+    remote: zephyrproject-rtos
+
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    # Main Zephyr repository
+    - name: zephyr
+      revision: v3.7.0
+      import:
+        # Import Zephyr's west.yml for module dependencies
+        # Only import specific modules we need
+        name-allowlist:
+          - cmsis           # ARM CMSIS (required for CMSIS-NN)
+          - cmsis-nn        # CMSIS-NN Optimized Kernels
+          - cmsis-dsp       # CMSIS-DSP Library (dependency of CMSIS-NN)
+          - hal_stm32       # STM32 HAL (for potential real hardware)
+
+    # Explicitly include TFLite Micro since it's not in the allowed list above
+    # or might be missing from the upstream manifest subset
+    - name: tflite-micro
+      path: modules/lib/tflite-micro
+      revision: zephyr_20240627
+
+    - name: cmsis
+      path: modules/hal/cmsis
+      revision: master
+
+  self:
+    path: zephyr-edge-ai-demo

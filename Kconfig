@@ -1,0 +1,136 @@
+# SPDX-License-Identifier: MIT
+# Zephyr Edge AI Demo - Custom Kconfig Options
+
+mainmenu "Zephyr Edge AI Demo Configuration"
+
+# Include Zephyr's root Kconfig
+source "Kconfig.zephyr"
+
+# =============================================================================
+# Application Configuration
+# =============================================================================
+
+menu "Edge AI Demo Settings"
+
+config APP_VERSION_STRING
+    string "Application version string"
+    default "1.0.0"
+    help
+      Version string for the application.
+
+# -----------------------------------------------------------------------------
+# Sensor Configuration
+# -----------------------------------------------------------------------------
+
+menu "Sensor Configuration"
+
+config SENSOR_SAMPLE_RATE_HZ
+    int "Sensor sampling rate in Hz"
+    default 100
+    range 10 1000
+    help
+      The rate at which accelerometer samples are collected.
+      Higher rates provide more data but increase CPU usage.
+
+config SENSOR_USE_MOCK
+    bool "Use mock accelerometer (for QEMU/testing)"
+    default y
+    help
+      Enable mock accelerometer data generation.
+      This allows the application to run without real sensor hardware.
+
+config SENSOR_MOCK_GESTURE_INTERVAL_MS
+    int "Interval between mock gestures (ms)"
+    default 3000
+    depends on SENSOR_USE_MOCK
+    help
+      How often the mock sensor generates a gesture pattern.
+
+endmenu # Sensor Configuration
+
+# -----------------------------------------------------------------------------
+# ML Inference Configuration
+# -----------------------------------------------------------------------------
+
+menu "ML Inference Configuration"
+
+config ML_TENSOR_ARENA_SIZE
+    int "TensorFlow Lite tensor arena size (bytes)"
+    default 8192
+    range 4096 32768
+    help
+      Size of the memory arena used by TensorFlow Lite Micro
+      for tensor allocations. Increase if model fails to load.
+
+config ML_INFERENCE_WINDOW_SIZE
+    int "Number of samples per inference window"
+    default 50
+    range 10 200
+    help
+      Number of accelerometer samples collected before
+      running inference. Larger windows may improve accuracy
+      but increase latency.
+
+config ML_CONFIDENCE_THRESHOLD
+    int "Minimum confidence threshold (percent)"
+    default 70
+    range 0 100
+    help
+      Minimum confidence score (0-100) required to report
+      a gesture detection. Lower values increase sensitivity
+      but may cause false positives.
+
+endmenu # ML Inference Configuration
+
+# -----------------------------------------------------------------------------
+# Debug Configuration
+# -----------------------------------------------------------------------------
+
+menu "Debug and Monitoring"
+
+config DEBUG_MONITOR_ENABLE
+    bool "Enable runtime debug monitoring"
+    default y
+    help
+      Enable periodic monitoring of stack usage, heap
+      fragmentation, and other debug metrics.
+
+config DEBUG_MONITOR_INTERVAL_MS
+    int "Debug monitor interval (ms)"
+    default 1000
+    depends on DEBUG_MONITOR_ENABLE
+    help
+      How often to collect and report debug statistics.
+
+config DEBUG_TIMING_ENABLE
+    bool "Enable inference timing measurements"
+    default y
+    help
+      Measure and report inference latency for each
+      model execution.
+
+endmenu # Debug and Monitoring
+
+# -----------------------------------------------------------------------------
+# Output Configuration
+# -----------------------------------------------------------------------------
+
+menu "Output Configuration"
+
+config OUTPUT_JSON_FORMAT
+    bool "Use JSON format for UART output"
+    default y
+    help
+      Output inference results as JSON for easy parsing.
+
+config OUTPUT_RING_BUFFER_SIZE
+    int "Output ring buffer size (entries)"
+    default 16
+    range 4 64
+    help
+      Number of inference results that can be buffered
+      before being output via UART.
+
+endmenu # Output Configuration
+
+endmenu # Edge AI Demo Settings

@@ -1,0 +1,68 @@
+# Build artifacts
+build/
+/build
+*.o
+*.a
+*.elf
+*.bin
+*.hex
+*.map
+
+# Zephyr workspace (managed by west)
+/zephyr/
+/bootloader/
+/modules/
+/tools/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+.eggs/
+*.egg-info/
+*.egg
+
+# IDE and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.cproject
+.settings/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Test outputs
+*.csv
+*.png
+*.pdf
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# Zephyr SDK
+zephyr-sdk-*/
+
+# ccache
+.ccache/
+
+# Documentation build
+docs/_build/
+
+# Local config
+.env
+.envrc
