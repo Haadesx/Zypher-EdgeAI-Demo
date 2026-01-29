@@ -6,6 +6,7 @@
 </p>
 
 [![CI Status](https://github.com/Haadesx/Zypher-EdgeAI-Demo/actions/workflows/build.yml/badge.svg)](https://github.com/Haadesx/Zypher-EdgeAI-Demo/actions)
+[![Developer](https://img.shields.io/badge/Developer-Varesh%20Patel-0052CC)](https://github.com/Haadesx)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Zephyr RTOS](https://img.shields.io/badge/Zephyr-3.7.0-blue)](https://zephyrproject.org/)
 [![TensorFlow Lite](https://img.shields.io/badge/TFLite-Micro-orange)](https://www.tensorflow.org/lite/microcontrollers)
@@ -250,5 +251,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
+  <b>Designed & Developed by <a href="https://github.com/Haadesx">Varesh Patel</a></b><br>
   Built with ❤️ for embedded AI on ARM
 </p>
