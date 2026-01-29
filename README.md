@@ -1,4 +1,4 @@
-# Zypher EdgeAI Demo 🚀
+# Zypher EdgeAI Demo
 > **Real-time Gesture Recognition on Arm Cortex-M3 with TensorFlow Lite Micro & Zephyr RTOS**
 
 <p align="center">
@@ -13,17 +13,17 @@
 
 > A production-quality embedded AI application demonstrating real-time gesture recognition on ARM Cortex-M using Zephyr RTOS and TensorFlow Lite Micro.
 
-## ✨ Features
+## Features
 
-- **🎯 Real-Time Gesture Recognition**: Detects 4 gesture classes (IDLE, WAVE, TAP, CIRCLE) using accelerometer data
-- **🧠 TensorFlow Lite Micro**: Quantized INT8 model with CMSIS-NN optimizations for ARM
-- **⚙️ Production-Ready Architecture**: Multi-threaded design with proper RTOS primitives
-- **🔍 Comprehensive Debug Infrastructure**: Stack monitoring, heap tracking, and documented bug fixes
-- **💻 Zero Hardware Required**: Runs entirely on QEMU with mock sensor data
-- **📊 Python Analysis Tools**: UART logger, latency analyzer, and automated test harness
-- **🔄 CI/CD Ready**: GitHub Actions workflow for automated builds
+- **Real-Time Gesture Recognition**: Detects 4 gesture classes (IDLE, WAVE, TAP, CIRCLE) using accelerometer data
+- **TensorFlow Lite Micro**: Quantized INT8 model with CMSIS-NN optimizations for ARM
+- **Production-Ready Architecture**: Multi-threaded design with proper RTOS primitives
+- **Comprehensive Debug Infrastructure**: Stack monitoring, heap tracking, and documented bug fixes
+- **Zero Hardware Required**: Runs entirely on QEMU with mock sensor data
+- **Python Analysis Tools**: UART logger, latency analyzer, and automated test harness
+- **CI/CD Ready**: GitHub Actions workflow for automated builds
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
@@ -49,7 +49,7 @@
 | **Debug Monitor** | Stack/heap monitoring, health checks |
 | **UART Output** | JSON-formatted results for analysis |
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -106,7 +106,7 @@ west build -t run
 {"type":"debug","ts":4000000,"heap_used":1024,"stack_used":2800}
 ```
 
-## 📊 Analysis Tools
+## Analysis Tools
 
 ### Collect UART Logs
 
@@ -145,7 +145,7 @@ INFERENCE LATENCY ANALYSIS REPORT
   CIRCLE          250    11,900     11,700     13,100
 ```
 
-## 🔧 Configuration
+## Configuration
 
 Key configuration options in `prj.conf`:
 
@@ -158,7 +158,7 @@ Key configuration options in `prj.conf`:
 
 See [Kconfig](Kconfig) for all options.
 
-## 🐛 Debugging Story
+## Debugging Story
 
 This project includes a documented investigation of a real issue encountered during development:
 
@@ -179,7 +179,7 @@ This project includes a documented investigation of a real issue encountered dur
 
 See [DEBUGGING.md](docs/DEBUGGING.md) for the complete investigation walkthrough.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 zephyr-edge-ai-demo/
@@ -207,15 +207,15 @@ zephyr-edge-ai-demo/
 └── .github/workflows/      # CI/CD
 ```
 
-## 🎯 Target Platforms
+## Target Platforms
 
 | Board | Status | Notes |
 |-------|--------|-------|
-| **mps2/an385** (QEMU) | ✅ Tested | Default target, no hardware needed |
-| STM32F4 Discovery | 🔄 Planned | Real accelerometer support |
-| nRF52840 DK | 🔄 Planned | BLE output option |
+| **mps2/an385** (QEMU) | Tested | Default target, no hardware needed |
+| STM32F4 Discovery | Planned | Real accelerometer support |
+| nRF52840 DK | Planned | BLE output option |
 
-## 📈 Performance
+## Performance
 
 Measured on QEMU (emulated ARM Cortex-M3):
 
@@ -228,7 +228,7 @@ Measured on QEMU (emulated ARM Cortex-M3):
 | Stack Usage (ML thread) | ~2.8KB |
 | Flash Usage (total) | ~80KB |
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please:
 
@@ -238,11 +238,11 @@ Contributions are welcome! Please:
 4. Run the test harness: `python scripts/test_harness.py`
 5. Submit a pull request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Zephyr Project](https://zephyrproject.org/) for the excellent RTOS
 - [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers) for embedded ML
@@ -252,4 +252,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <p align="center">
   <b>Designed & Developed by <a href="https://github.com/Haadesx">Varesh Patel</a></b><br>
+  For Embedded AI on ARM
 </p>

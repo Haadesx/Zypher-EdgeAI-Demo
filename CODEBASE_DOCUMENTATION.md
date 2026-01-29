@@ -31,7 +31,7 @@ Comprehensive documentation of the codebase structure and individual files to su
 - [scripts/test_harness.py](#scriptstest_harnesspy)
 - [scripts/uart_logger.py](#scriptsuart_loggerpy)
 
----◊
+---
 
 ## File Documentation
 
@@ -241,7 +241,7 @@ Comprehensive documentation of the codebase structure and individual files to su
 ### Tools & Scripts
 
 #### scripts/show_demo.py
-- **Purpose**: **"The Tangible Demo"** - Real-time visualization dashboard.
+- **Purpose**: Real-time visualization dashboard.
 - **Reason for Inclusion**: Transforms raw text logs into a visual, interactive UI.
 - **Functionality**:
   - Runs QEMU in the background.
