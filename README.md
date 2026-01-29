@@ -252,5 +252,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <p align="center">
   <b>Designed & Developed by <a href="https://github.com/Haadesx">Varesh Patel</a></b><br>
-  Built with ❤️ for embedded AI on ARM
 </p>
