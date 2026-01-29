@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Definitions for stickies and arrowheads -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="#f8f9fa"/>
+
+  <!-- Component: Sensor Thread -->
+  <g transform="translate(50, 150)">
+    <rect width="140" height="80" rx="5" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" filter="url(#shadow)"/>
+    <text x="70" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#0d47a1">Sensor Thread</text>
+    <text x="70" y="55" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#555">(100 Hz)</text>
+  </g>
+
+  <!-- Component: Preprocessing -->
+  <g transform="translate(250, 150)">
+    <rect width="140" height="80" rx="5" fill="#e8f5e9" stroke="#4caf50" stroke-width="2" filter="url(#shadow)"/>
+    <text x="70" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1b5e20">Preprocessing</text>
+    <text x="70" y="55" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#555">Window Buffer</text>
+  </g>
+
+  <!-- Component: ML Thread -->
+  <g transform="translate(450, 150)">
+    <rect width="140" height="80" rx="5" fill="#fff3e0" stroke="#ff9800" stroke-width="2" filter="url(#shadow)"/>
+    <text x="70" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#e65100">ML Thread</text>
+    <text x="70" y="55" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#555">TFLite Inference</text>
+  </g>
+
+  <!-- Component: UART Output -->
+  <g transform="translate(650, 150)">
+    <rect width="120" height="80" rx="5" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2" filter="url(#shadow)"/>
+    <text x="60" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#4a148c">UART Output</text>
+    <text x="60" y="55" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#555">JSON Stream</text>
+  </g>
+
+  <!-- Component: Debug Monitor -->
+  <g transform="translate(350, 300)">
+    <rect width="140" height="60" rx="5" fill="#ffebee" stroke="#f44336" stroke-width="2" filter="url(#shadow)"/>
+    <text x="70" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#b71c1c">Debug Monitor</text>
+    <text x="70" y="45" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#555">Stack/Heap (1 Hz)</text>
+  </g>
+
+  <!-- Arrows -->
+  <line x1="190" y1="190" x2="240" y2="190" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="390" y1="190" x2="440" y2="190" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="590" y1="190" x2="640" y2="190" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Debug Arrows (Dashed) -->
+  <path d="M 520 230 L 520 330 L 500 330" stroke="#f44336" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 320 230 L 320 330 L 340 330" stroke="#f44336" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrowhead)"/>
+
+</svg>
