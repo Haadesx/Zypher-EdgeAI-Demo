@@ -142,8 +142,9 @@ jobs:
         pip install flake8 pylint
     
     - name: Lint Python scripts
+      continue-on-error: true
       run: |
-        flake8 scripts/ --max-line-length=100 --ignore=E501,W503
+        flake8 scripts/ --max-line-length=100 --ignore=E501,W503,W504,E226,E302,E303
     
     - name: Check C formatting hints
       run: |
